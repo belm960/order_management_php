@@ -31,7 +31,7 @@ $notices=$conn->getOne("SELECT COUNT(id) TOTAL FROM notices WHERE status = 1");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Human Resource Management Sysytem</title>
+    <title>Order Management Sysytem</title>
 
     <!-- Bootstrap -->
     <link href="../../resource/css/bootstrap.css" rel="stylesheet">
@@ -56,7 +56,7 @@ $notices=$conn->getOne("SELECT COUNT(id) TOTAL FROM notices WHERE status = 1");
     <div class="main_container">
 
         <!-- side and top bar include -->
-        <?php include '../partPage/sideAndTopBarMenu.html' ?>
+        <?php include '../partPage/sideAndTopBarMenu.php' ?>
         <!-- /side and top bar include -->
 
         <!-- page content -->

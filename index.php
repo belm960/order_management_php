@@ -4,7 +4,6 @@ session_start();
 //if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
 //    header("Location:views/admin/dashboard.php");
 //}
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Human Resource Management Sysytem</title>
+    <title>Unity Order Management Sysytem</title>
 
     <!-- Bootstrap -->
     <link href="resource/css/bootstrap.css" rel="stylesheet">
@@ -62,7 +61,6 @@ session_start();
                         <button type="submit" name="login" class="btn btn-default submit">Log in</button>
                         <a class="reset_pass" href="#signup">Lost your password ?</a>
                     </div>
-
                     <div class="clearfix"></div>
 
                     <div class="separator">
@@ -74,8 +72,10 @@ session_start();
 <!--                        <br />-->
 
                         <div>
-                            <h1><i class="fa fa-paw"></i> Sandwitch Group !</h1>
-                            <p>©2017 All Rights Reserved. Sandwitch Group</p>
+                            <li class="user-profile">
+                                <h1> <img src="./resource/images/img1.png" alt="" > Unity University !</h1>
+                                <p>©2024 All Rights Reserved. Unity University</p>
+                            </li>
                         </div>
                     </div>
                 </form>
@@ -110,8 +110,8 @@ session_start();
                         <br />
 
                         <div>
-                            <h1><i class="fa fa-paw"></i> Sandwitch Group !</h1>
-                            <p>©2017 All Rights Reserved. Sandwitch Group</p>
+                            <h1><i class="fa fa-paw"></i> Unity University !</h1>
+                            <p>©2024 All Rights Reserved. Unity University</p>
                         </div>
                     </div>
                 </form>
