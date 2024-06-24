@@ -44,7 +44,7 @@
                     <ul class="nav child_menu">
                     <?php 
                         if(isset($_SESSION['role'])&&$_SESSION['role']=='admin'){
-                            echo '<li><a href="../admin/dashboard.php">Dashboard</a></li><li><a href="../viewOrder/viewOrder.php">View Order</a></li>
+                            echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li><li><a href="../viewOrder/viewOrder.php">View Order</a></li>
                         <li><a href="../viewOrder/viewOrder.php">Completed Orders</a></li><li><a href="../viewOrder/viewOrder.php">Approved Orders</a></li>';
                         }else{
                             echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li>';                                }
@@ -94,7 +94,7 @@
                     </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
+                <!-- <li role="presentation" class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-calendar"></i>
                         <span class="badge bg-green"><?=$_SESSION["event"]?></span>
@@ -128,7 +128,7 @@
                             </div>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>

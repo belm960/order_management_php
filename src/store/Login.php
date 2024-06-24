@@ -19,7 +19,11 @@ if (isset($_POST['login'])){
             $_SESSION['admin_name'] = $admin['name'];
             $_SESSION['admin_password'] = $admin['password'];
             $_SESSION['role'] = $admin['role'];
-            header("Location:../../views/admin/dashboard.php");
+            if($admin['role']=='admin'){
+                header("Location:../../views/admin/dashboard.php");
+            }else{
+                header("Location:../../views/admin/dashboard2.php");
+            }
             break;
         }
     }

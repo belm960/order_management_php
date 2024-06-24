@@ -34,11 +34,20 @@ if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
     <div class="main_container">
 
         <!-- side and top bar include -->
-        <?php include '../partPage/sideAndTopBarMenu.php' ?>
-        <!-- /side and top bar include -->
-
+        <?php include '../partPage/sideAndTopBarMenu.php';    
+        ?>
         <!-- page content -->
         <div class="right_col" role="main">
+        <?php
+            if(isset($_SESSION['status'])){
+        ?>
+        <div class="alert alert-success" role="alert">
+        <?php echo $_SESSION['status']; ?>
+        </div>
+        <?php          
+            unset($_SESSION['status']);
+            } 
+        ?>
             <div class="">
                 <div class="row top_tiles">
                     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">

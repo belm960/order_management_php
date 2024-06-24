@@ -13,8 +13,13 @@ if ($conn-> connect_error){
 }else {
     $stmt = $conn->prepare("insert into orders(request_department, task_category, size, description, requested_by) value('$request_department','$task_category','$size','$description','$requested_by')");
     $stmt->execute();
-    $_SESSION['status'] = "Data Inserted SUcceffully";
-    header('location:../viewOrder/viewOrder.php');
+    $_SESSION['status'] = "Data Inserted Succesfully";
+    if(isset($_SESSION['role']))
+    if($_SESSION['role']=='admin'){
+        header("Location:../../views/admin/dashboard.php");
+    }else{
+        header("Location:../../views/admin/dashboard2.php");
+    }
     $stmt->close();
     $conn->close();
 }
