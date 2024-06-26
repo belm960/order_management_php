@@ -17,9 +17,9 @@ if ($conn-> connect_error){
     $_SESSION['status'] = "Data Inserted Succesfully";
     if(isset($_SESSION['role']))
     if($_SESSION['role']=='admin'){
-        header("Location:../../views/admin/dashboard.php");
+        header("Location:../../../views/user/dashboard/dashboard.php");
     }else{
-        header("Location:../../views/admin/dashboard2.php");
+        header("Location:../../../views/user/dashboard/dashboard2.php");
     }
     $stmt->close();
     $conn->close();

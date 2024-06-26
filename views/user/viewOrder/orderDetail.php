@@ -3,10 +3,10 @@
 session_start();
 
 if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
-    header("Location:../../index.php");
+    header("Location:../../../index.php");
 }
 
-include '../../src/common/DBConnection.php';
+include '../../../src/common/DBConnection.php';
 
 $servername = "localhost";
 $username = "root";
@@ -39,21 +39,21 @@ if (isset($_GET['id'])) {
     <title>Order Management System</title>
 
     <!-- Bootstrap -->
-    <link href="../../resource/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../resource/css/bootstrap.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../../resource/css/font-awesome.css" rel="stylesheet">
+    <link href="../../../resource/css/font-awesome.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../../resource/css/nprogress.css" rel="stylesheet">
+    <link href="../../../resource/css/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../../resource/css/green.css" rel="stylesheet">
+    <link href="../../../resource/css/green.css" rel="stylesheet">
     <!-- Datatables -->
-    <link href="../../resource/css/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="../../resource/css/buttons.bootstrap.css" rel="stylesheet">
-    <link href="../../resource/css/fixedHeader.bootstrap.css" rel="stylesheet">
-    <link href="../../resource/css/responsive.bootstrap.css" rel="stylesheet">
-    <link href="../../resource/css/scroller.bootstrap.css" rel="stylesheet">
+    <link href="../../../resource/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../../../resource/css/buttons.bootstrap.css" rel="stylesheet">
+    <link href="../../../resource/css/fixedHeader.bootstrap.css" rel="stylesheet">
+    <link href="../../../resource/css/responsive.bootstrap.css" rel="stylesheet">
+    <link href="../../../resource/css/scroller.bootstrap.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="../../resource/css/custom.css" rel="stylesheet">
+    <link href="../../../resource/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -119,7 +119,7 @@ if (isset($_GET['id'])) {
     <div class="main_container">
 
         <!-- side and top bar include -->
-        <?php include '../partPage/sideAndTopBarMenu.php' ?>
+        <?php include '../../partPage/sideAndTopBarMenu.php' ?>
         <!-- /side and top bar include -->
 
         <!-- page content -->
@@ -128,7 +128,7 @@ if (isset($_GET['id'])) {
                 <div class="page-title">
                     <div class="title_left">
                         <h3>
-                            <img src="../../resource/images/img1.png" alt="" width="30px" height="30px" class="img-circle">
+                            <img src="../../../resource/images/img1.png" alt="" width="30px" height="30px" class="img-circle">
                             <span>Unity University</span>
                         </h3>
                         <h2>
@@ -236,7 +236,7 @@ if (isset($_GET['id'])) {
         <!-- /page content -->
 
         <!-- footer content include -->
-        <?php include '../partPage/footer.html' ?>
+        <?php include '../../partPage/footer.html' ?>
         <!-- /footer content include -->
     </div>
 </div>
@@ -260,32 +260,32 @@ if (isset($_GET['id'])) {
     });
 </script>
 <!-- jQuery -->
-<script src="../../resource/js/jquery.min.js"></script>
+<script src="../../../resource/js/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="../../resource/js/bootstrap.min.js"></script>
+<script src="../../../resource/js/bootstrap.min.js"></script>
 <!-- FastClick -->
-<script src="../../resource/js/fastclick.js"></script>
+<script src="../../../resource/js/fastclick.js"></script>
 <!-- NProgress -->
-<script src="../../resource/js/nprogress.js"></script>
+<script src="../../../resource/js/nprogress.js"></script>
 <!-- iCheck -->
-<script src="../../resource/js/icheck.min.js"></script>
+<script src="../../../resource/js/icheck.min.js"></script>
 <!-- Datatables -->
-<script src="../../resource/js/jquery.dataTables.min.js"></script>
-<script src="../../resource/js/dataTables.bootstrap.min.js"></script>
-<script src="../../resource/js/dataTables.buttons.min.js"></script>
-<script src="../../resource/js/buttons.bootstrap.min.js"></script>
-<script src="../../resource/js/buttons.flash.min.js"></script>
-<script src="../../resource/js/buttons.html5.min.js"></script>
-<script src="../../resource/js/buttons.print.min.js"></script>
-<script src="../../resource/js/dataTables.fixedHeader.min.js"></script>
-<script src="../../resource/js/dataTables.keyTable.min.js"></script>
-<script src="../../resource/js/dataTables.responsive.min.js"></script>
-<script src="../../resource/js/responsive.bootstrap.js"></script>
-<script src="../../resource/js/dataTables.scroller.min.js"></script>
-<script src="../../resource/js/jszip.min.js"></script>
-<script src="../../resource/js/pdfmake.min.js"></script>
-<script src="../../resource/js/vfs_fonts.js"></script>
+<script src="../../../resource/js/jquery.dataTables.min.js"></script>
+<script src="../../../resource/js/dataTables.bootstrap.min.js"></script>
+<script src="../../../resource/js/dataTables.buttons.min.js"></script>
+<script src="../../../resource/js/buttons.bootstrap.min.js"></script>
+<script src="../../../resource/js/buttons.flash.min.js"></script>
+<script src="../../../resource/js/buttons.html5.min.js"></script>
+<script src="../../../resource/js/buttons.print.min.js"></script>
+<script src="../../../resource/js/dataTables.fixedHeader.min.js"></script>
+<script src="../../../resource/js/dataTables.keyTable.min.js"></script>
+<script src="../../../resource/js/dataTables.responsive.min.js"></script>
+<script src="../../../resource/js/responsive.bootstrap.js"></script>
+<script src="../../../resource/js/dataTables.scroller.min.js"></script>
+<script src="../../../resource/js/jszip.min.js"></script>
+<script src="../../../resource/js/pdfmake.min.js"></script>
+<script src="../../../resource/js/vfs_fonts.js"></script>
 <!-- Custom Theme Scripts -->
-<script src="../../resource/js/custom.min.js"></script>
+<script src="../../../resource/js/custom.min.js"></script>
 </body>
 </html>

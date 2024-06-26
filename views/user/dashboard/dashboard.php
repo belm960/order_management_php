@@ -3,10 +3,10 @@
 session_start();
 
 if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
-    header("Location:../../index.php");
+    header("Location:../../../index.php");
 }
 
-include ("../../src/common/DBConnection.php");
+include ("../../../src/common/DBConnection.php");
 
 $conn=new DBConnection();
 
@@ -34,21 +34,21 @@ $notices=$conn->getOne("SELECT COUNT(id) TOTAL FROM notices WHERE status = 1");
     <title>Order Management Sysytem</title>
 
     <!-- Bootstrap -->
-    <link href="../../resource/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../resource/css/bootstrap.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../../resource/css/font-awesome.css" rel="stylesheet">
+    <link href="../../../resource/css/font-awesome.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../../resource/css/nprogress.css" rel="stylesheet">
+    <link href="../../../resource/css/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../../resource/css/green.css" rel="stylesheet">
+    <link href="../../../resource/css/green.css" rel="stylesheet">
     <!-- bootstrap-progressbar -->
-    <link href="../../resource/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
+    <link href="../../../resource/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="../../resource/css/jqvmap.css" rel="stylesheet"/>
+    <link href="../../../resource/css/jqvmap.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="../../resource/css/daterangepicker.css" rel="stylesheet">
+    <link href="../../../resource/css/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="../../resource/css/custom.css" rel="stylesheet">
+    <link href="../../../resource/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -56,7 +56,7 @@ $notices=$conn->getOne("SELECT COUNT(id) TOTAL FROM notices WHERE status = 1");
     <div class="main_container">
 
         <!-- side and top bar include -->
-        <?php include '../partPage/sideAndTopBarMenu.php' ?>
+        <?php include '../../partPage/sideAndTopBarMenu.php' ?>
         <!-- /side and top bar include -->
 
         <!-- page content -->
@@ -760,44 +760,44 @@ $notices=$conn->getOne("SELECT COUNT(id) TOTAL FROM notices WHERE status = 1");
 </div>
 
 <!-- jQuery -->
-<script src="../../resource/js/jquery.min.js"></script>
+<script src="../../../resource/js/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="../../resource/js/bootstrap.min.js"></script>
+<script src="../../../resource/js/bootstrap.min.js"></script>
 <!-- FastClick -->
-<script src="../../resource/js/fastclick.js"></script>
+<script src="../../../resource/js/fastclick.js"></script>
 <!-- NProgress -->
-<script src="../../resource/js/nprogress.js"></script>
+<script src="../../../resource/js/nprogress.js"></script>
 <!-- Chart.js -->
-<script src="../../resource/js/Chart.min.js"></script>
+<script src="../../../resource/js/Chart.min.js"></script>
 <!-- gauge.js -->
-<script src="../../resource/js/gauge.min.js"></script>
+<script src="../../../resource/js/gauge.min.js"></script>
 <!-- bootstrap-progressbar -->
-<script src="../../resource/js/bootstrap-progressbar.min.js"></script>
+<script src="../../../resource/js/bootstrap-progressbar.min.js"></script>
 <!-- iCheck -->
-<script src="../../resource/js/icheck.min.js"></script>
+<script src="../../../resource/js/icheck.min.js"></script>
 <!-- Skycons -->
-<script src="../../resource/js/skycons.js"></script>
+<script src="../../../resource/js/skycons.js"></script>
 <!-- Flot -->
-<script src="../../resource/js/jquery.flot.js"></script>
-<script src="../../resource/js/jquery.flot.pie.js"></script>
-<script src="../../resource/js/jquery.flot.time.js"></script>
-<script src="../../resource/js/jquery.flot.stack.js"></script>
-<script src="../../resource/js/jquery.flot.resize.js"></script>
+<script src="../../../resource/js/jquery.flot.js"></script>
+<script src="../../../resource/js/jquery.flot.pie.js"></script>
+<script src="../../../resource/js/jquery.flot.time.js"></script>
+<script src="../../../resource/js/jquery.flot.stack.js"></script>
+<script src="../../../resource/js/jquery.flot.resize.js"></script>
 <!-- Flot plugins -->
-<script src="../../resource/js/jquery.flot.orderBars.js"></script>
-<script src="../../resource/js/jquery.flot.spline.min.js"></script>
-<script src="../../resource/js/curvedLines.js"></script>
+<script src="../../../resource/js/jquery.flot.orderBars.js"></script>
+<script src="../../../resource/js/jquery.flot.spline.min.js"></script>
+<script src="../../../resource/js/curvedLines.js"></script>
 <!-- DateJS -->
-<script src="../../resource/js/date.js"></script>
+<script src="../../../resource/js/date.js"></script>
 <!-- JQVMap -->
-<script src="../../resource/js/jquery.vmap.min.js"></script>
-<script src="../../resource/js/jquery.vmap.world.js"></script>
-<script src="../../resource/js/jquery.vmap.sampledata.js"></script>
+<script src="../../../resource/js/jquery.vmap.min.js"></script>
+<script src="../../../resource/js/jquery.vmap.world.js"></script>
+<script src="../../../resource/js/jquery.vmap.sampledata.js"></script>
 <!-- bootstrap-daterangepicker -->
-<script src="../../resource/js/moment.min.js"></script>
-<script src="../../resource/js/daterangepicker.js"></script>
+<script src="../../../resource/js/moment.min.js"></script>
+<script src="../../../resource/js/daterangepicker.js"></script>
 <!-- Custom Theme Scripts -->
-<script src="../../resource/js/custom.min.js"></script>
+<script src="../../../resource/js/custom.min.js"></script>
 </body>
 </html>
 

@@ -45,7 +45,7 @@
                     <?php 
                         if(isset($_SESSION['role'])&&$_SESSION['role']=='admin'){
                             echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li><li><a href="../viewOrder/viewOrder.php">View Order</a></li>
-                        <li><a href="../viewOrder/viewOrder.php">Completed Orders</a></li><li><a href="../viewOrder/viewOrder.php">Approved Orders</a></li>';
+                        <li><a href="../viewOrder/viewOrder.php?status=PENDING">Completed Orders</a></li><li><a href="../viewOrder/viewOrder.php">Approved Orders</a></li>';
                         }else{
                             echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li>';                                }
                     ?>
@@ -61,7 +61,7 @@
             <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen" onclick="toggleFullScreen()">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
             </a>
             <a data-toggle="tooltip" data-placement="top" title="Lock">
