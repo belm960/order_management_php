@@ -13,16 +13,18 @@ if (isset($_POST['login'])){
     $user_name = trim($_POST['userName']);
     $user_password = trim($_POST['password']);
     foreach ($restlt as $row){
-        $admin = $row;
-        if ($user_name == $user['name'] && $user_password == $user['password']) {
+        $user = $row;
+        if ($user_name == $user['username'] && $user_password == $user['password']) {
             $login=true;
-            $_SESSION['user_name'] = $user['name'];
+            $_SESSION['user_name'] = $user['username'];
             $_SESSION['user_password'] = $user['password'];
             $_SESSION['role'] = $user['role'];
+            $_SESSION['department_from'] = $user['department'];
+            $_SESSION['campus'] = $user['campus'];
             if($user['role']=='user'){
-                header("Location:../../views/user/dashboard/dashboard.php");
+                header("Location:../../views/user/dashboard.php");
             }else{
-                header("Location:../../views/user/dashboard/dashboard2.php");
+                header("Location:../../views/user/dashboard2.php");
             }
             break;
         }

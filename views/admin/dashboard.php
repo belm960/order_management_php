@@ -2,23 +2,9 @@
 
 session_start();
 
-if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
+if(!isset($_SESSION['user_name']) && !isset($_SESSION['password']) && !$_SESSION['role']=='user') {
     header("Location:../../index.php");
 }
-
-include ("../../src/common/DBConnection.php");
-
-$conn=new DBConnection();
-
-//$events=$conn->getOne("SELECT COUNT(id) TOTAL FROM live_events WHERE status = 1");
-
-$_SESSION["event"] = $events['TOTAL'];
-
-$allEvents=$conn->getAll("SELECT * FROM live_events WHERE status = 1");
-
-$_SESSION["events"] = $allEvents;
-
-$notices=$conn->getOne("SELECT COUNT(id) TOTAL FROM notices WHERE status = 1");
 
 ?>
 
@@ -65,12 +51,12 @@ $notices=$conn->getOne("SELECT COUNT(id) TOTAL FROM notices WHERE status = 1");
             <div class="row tile_count">
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-user"></i> Total Live Event in live</span>
-                    <div class="count"><?=$events['TOTAL']?></div>
+                    <div class="count">200</div>
                     <span class="count_bottom"><i class="green">4% </i> From last Week</span>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                     <span class="count_top"><i class="fa fa-clock-o"></i> Total Notice in board</span>
-                    <div class="count"><?=$notices['TOTAL']?></div>
+                    <div class="count">200</div>
                     <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">

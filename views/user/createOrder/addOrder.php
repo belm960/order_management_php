@@ -15,12 +15,7 @@ if ($conn-> connect_error){
     $stmt = $conn->prepare("insert into orders(request_department, task_category, size, description, requested_by,status) value('$request_department','$task_category','$size','$description','$requested_by','$status')");
     $stmt->execute();
     $_SESSION['status'] = "Data Inserted Succesfully";
-    if(isset($_SESSION['role']))
-    if($_SESSION['role']=='admin'){
-        header("Location:../../../views/user/dashboard/dashboard.php");
-    }else{
-        header("Location:../../../views/user/dashboard/dashboard2.php");
-    }
+    header("Location:../dashboard.php");
     $stmt->close();
     $conn->close();
 }

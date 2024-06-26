@@ -15,7 +15,7 @@ class DBConnection
         $this->host = 'localhost';
         $this->user = 'root';
         $this->password = '';
-        $this->dbName = 'hrm';
+        $this->dbName = 'oms';
         $this->port = '3306';
         $this->connect();
     }

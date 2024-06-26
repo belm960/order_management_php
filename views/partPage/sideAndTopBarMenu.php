@@ -46,7 +46,7 @@
                         if(isset($_SESSION['role'])&&$_SESSION['role']=='admin'){
                             echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li><li><a href="../viewOrder/viewOrder.php">View Order</a></li>
                         <li><a href="../viewOrder/viewOrder.php?status=PENDING">Completed Orders</a></li><li><a href="../viewOrder/viewOrder.php">Approved Orders</a></li>';
-                        }else{
+                        }else if (isset($_SESSION['role'])&&$_SESSION['role']=='user'){
                             echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li>';                                }
                     ?>
                     </ul>
