@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
+if(!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) {
     header("Location:../../index.php");
 }
 
@@ -11,7 +11,8 @@ include '../../src/common/DBConnection.php';
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "hrm";
+$dbname = "oms";
+$id;
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -21,7 +22,7 @@ die("Connection failed: " . $conn->connect_error);
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
-    $sql = "SELECT request_department, task_category, size, description, requested_by FROM `orders` WHERE id = $id";
+    $sql = "SELECT * FROM `orders` WHERE id = $id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -161,8 +162,8 @@ if (isset($_GET['id'])) {
                                 // Database connection
                                 echo "<table class='table table-bordered'>
                                         <tr>
-                                            <th>Request Department</th>
-                                            <td>{$row['request_department']}</td>
+                                            <th>Department To</th>
+                                            <td>{$row['department_to']}</td>
                                         </tr>
                                         <tr>
                                             <th>Task Category</th>
@@ -180,7 +181,13 @@ if (isset($_GET['id'])) {
                                             <th>Requested By</th>
                                             <td>{$row['requested_by']}</td>
                                         </tr>
-                                    </table>";
+                                        <tr>
+                                            <th>Status</th>
+                                            <td>{$row['status']}</td>
+                                        </tr>
+                                    </table>
+                                    <span>Click on the finished button if you have completed the task</span>
+                                    <a id='openDialog' class='btn btn-success mt-3'>Accept</a>";
                             } else {
                                 echo "<p>No record found</p>";
                             }
@@ -192,39 +199,19 @@ if (isset($_GET['id'])) {
                                 ?>
                             </div>
                             <div>
-                                <span class="row">
-                                    <span>Click on the finished button if you have completed the task</span>
-                                    <a id="openDialog" class="btn btn-success mt-3">Finished</a>
-                                    <div id="dialog" class="dialog">
+                                <div id="dialog" class="dialog">
                                     <div class="dialog-content">
                                         <span id="close" class="close">&times;</span>
-                                        <h2>Add Your Work Info</h2>
-                                        <form id="form-horizontal form-label-left" action="complete.php" method="POST">
-                                            <span class="section">Technical Info</span>
-                                            <div class="item form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="technical_result">Technical Result: </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <textarea class="form-control col-md-7 col-xs-12" type="text" id="technical_result" name="technical_result" required></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="ln_solid"></div>
-                                            <div class="item form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="action_recommendation">Action & Recommendation: </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <textarea class="form-control col-md-7 col-xs-12" type="text" id="action_recommendation" name="action_recommendation" required></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="ln_solid"></div>
-                                            <div class="form-group">
-                                                <div class="col-md-6 col-md-offset-3">
-                                                    <button type="submit" class="btn btn-primary">Cancel</button>
-                                                    <button id="send" type="submit" class="btn btn-success">Submit</button>
-                                                </div>
-                                            </div>                                        
-                                        </form>
+                                        <h2>Are you Sure?</h2>
+                                            <span class="section">Do you Accept and transfer the order to the department?</span>
+                                        <div class="col-md-offset-3 section">
+                                            <button id="cancel_accept" class="btn btn-primary btn-lg mr-5">Cancel</button>
+                                            <?php 
+                                                echo "<a href='./acceptOrder.php?status=ACCEPT&id=$id' id='send_accept' class='btn btn-success btn-lg'>Accept!</a>"
+
+                                            ?>                                        </div>                                       
                                     </div>
                                 </div>
-                                </span>
                             </div>
                                 
                             </div>
@@ -250,9 +237,16 @@ if (isset($_GET['id'])) {
     document.getElementById('close').addEventListener('click', function() {
         $("#dialog").css("display", "none");
     });
-    document.getElementById('dialog').addEventListener('click', function() {
+
+    document.getElementById('cancel_accept').addEventListener('click', function() {
         $("#dialog").css("display", "none");
     });
+    document.getElementById('send_accept').addEventListener('click', function() {
+        $("#dialog").css("display", "none");
+    });
+    //document.getElementById('dialog').addEventListener('click', function() {
+    //    $("#dialog").css("display", "none");
+    //});
 
     // Prevent dialog from closing when clicking inside the dialog content
     document.getElementsByClassName("dialog-content").addEventListener('click', function(e) {

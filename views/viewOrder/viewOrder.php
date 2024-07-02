@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
+if(!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) {
     header("Location:../../index.php");
 }
 
@@ -11,21 +11,22 @@ include '../../src/common/DBConnection.php';
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "hrm";
+$dbname = "oms";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-if (isset($_GET['status'])) {
+$department =$_SESSION['department_from'];
+$role = $_SESSION['role'];
+if (isset($_GET['status']) && $_GET['type']=='requested_order') {
     $status = $_GET['status'];
-    $sql = "SELECT request_department, task_category, size, description, requested_by FROM `orders` WHERE orders.status = '$status';";
-}else{
-    $status = NULL;
-    $sql = "SELECT request_department, task_category, size, description, requested_by FROM `orders` WHERE orders.status = NULL;";
+    $sql = "SELECT * FROM `orders` WHERE orders.status = '$status' and orders.request_department='$department';";
+}else if (isset($_GET['status']) && $_GET['type']=='your_order') {
+    $status = $_GET['status'];
+    $sql = "SELECT * FROM `orders` WHERE orders.status = '$status' and orders.department_to='$department';";
 }
-
 $result = $conn->query($sql);
 ?>
 
@@ -122,6 +123,8 @@ $result = $conn->query($sql);
                                     <thead>
                                     <tr>
                                         <th>Request Department</th>
+                                        <th>Department To</th>
+                                        <th>Campus</th>                                        
                                         <th>Task Category</th>
                                         <th>Size</th>
                                         <th>Description</th>
@@ -137,6 +140,8 @@ $result = $conn->query($sql);
                                         ?>
                                         <tr>
                                             <td><?=$row['request_department']?></td>
+                                            <td><?=$row['department_to']?></td>
+                                            <td><?=$row['campus']?></td>
                                             <td><?=$row['task_category']?></td>
                                             <td><?=$row['size']?></td>
                                             <td><?=$row['description']?></td>

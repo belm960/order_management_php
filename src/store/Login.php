@@ -21,7 +21,10 @@ if (isset($_POST['login'])){
             $_SESSION['role'] = $user['role'];
             $_SESSION['department_from'] = $user['department'];
             $_SESSION['campus'] = $user['campus'];
+            $_SESSION['full_name'] = $user['full_name'];
             if($user['role']=='user'){
+                header("Location:../../views/user/dashboard.php");
+            }else if($user['role']=='manager'){
                 header("Location:../../views/user/dashboard.php");
             }else{
                 header("Location:../../views/user/dashboard2.php");

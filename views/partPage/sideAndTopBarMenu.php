@@ -47,7 +47,10 @@
                             echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li><li><a href="../viewOrder/viewOrder.php">View Order</a></li>
                         <li><a href="../viewOrder/viewOrder.php?status=PENDING">Completed Orders</a></li><li><a href="../viewOrder/viewOrder.php">Approved Orders</a></li>';
                         }else if (isset($_SESSION['role'])&&$_SESSION['role']=='user'){
-                            echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li>';                                }
+                            echo '<li><a href="../createOrder/createOrder.php">Create Order</a></li>';}
+                        else if (isset($_SESSION['role'])&&$_SESSION['role']=='manager'){
+                            echo '<li><a href="../viewOrder/viewOrder.php?status=PENDING&type=requested_order">Requested Order</a></li>
+                                <li><a href="../viewOrder/viewOrder.php?status=ACCEPTED&type=your_order">Your Order</a></li>';}
                     ?>
                     </ul>
                 </li>
@@ -86,7 +89,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="../../resource/images/img1.png" alt="">Unity University
+                        <img src="../../resource/images/img1.png" alt="">
+                        <? echo $_SESSION['full_name']; ?>
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">

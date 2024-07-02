@@ -63,12 +63,11 @@ if(!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) {
 
                                 <form class="form-horizontal form-label-left" novalidate action="addOrder.php" method="post">
                                     <span class="section">Order Info</span>
-
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="request_department">Department <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="department_to">Department To<span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select id="request_department" name="request_department">
+                                            <select id="department_to" name="department_to">
                                                 <option value="Engineering">Engineering</option>
                                                 <option value="Human Resource">Human Resource</option>
                                                 <option value="Finance">Finance</option>
@@ -100,13 +99,6 @@ if(!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) {
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <textarea id="description" required="required" name="description" class="form-control col-md-7 col-xs-12"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="requested_by">Requested By <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="requested_by" required="required" type="text" name="requested_by" data-validate-length-range="5,20" class="required form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
